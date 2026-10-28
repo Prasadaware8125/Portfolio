@@ -7,7 +7,6 @@ import Education from './components/Education';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
-import Leadership from './components/Leadership';
 import Achievements from './components/Achievements';
 import Certifications from './components/Certifications';
 import GitHubSection from './components/GitHubSection';
@@ -33,7 +32,6 @@ export default function App() {
         <Skills />
         <Projects />
         <Experience />
-        <Leadership />
         <Achievements />
         <Certifications />
         <GitHubSection />

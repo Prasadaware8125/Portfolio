@@ -4,6 +4,7 @@ import { Menu, X, Send, Sparkles } from 'lucide-react';
 const navItems = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
+  { name: 'Education', href: '#education' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
   { name: 'Experience', href: '#experience' },
@@ -21,15 +22,15 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = navItems.map(item => item.href.substring(1));
-      const scrollPosition = window.scrollY + 120;
+      const sections = navItems.map((item) => item.href.substring(1));
+      const scrollPosition = window.scrollY + 140;
 
-      for (const section of sections) {
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
         const el = document.getElementById(section);
         if (el) {
           const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
+          if (scrollPosition >= top) {
             setActiveSection(section);
             break;
           }
@@ -55,8 +56,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#07090e]/85 backdrop-blur-md border-b border-slate-800/80 py-3 shadow-xl shadow-black/40'
-          : 'bg-transparent py-5'
+          ? 'bg-[#07090e]/90 backdrop-blur-md border-b border-slate-800/80 py-3 shadow-xl shadow-black/40'
+          : 'bg-transparent py-4 sm:py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -80,7 +81,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-full border border-slate-800/80 backdrop-blur-sm">
+        <nav className="hidden xl:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-full border border-slate-800/80 backdrop-blur-sm">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.substring(1);
             return (
@@ -88,7 +89,7 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
                   isActive
                     ? 'bg-sky-500 text-slate-950 font-semibold shadow-sm shadow-sky-500/20'
                     : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
@@ -100,7 +101,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Desktop Action Buttons */}
+        {/* Desktop Action Button */}
         <div className="hidden lg:flex items-center gap-3">
           <a
             href="#contact"
@@ -112,11 +113,11 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Hamburger Button */}
-        <div className="lg:hidden flex items-center gap-2">
+        {/* Mobile / Tablet Hamburger Button */}
+        <div className="xl:hidden flex items-center gap-2">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg bg-slate-800/80 text-slate-200 border border-slate-700/60 focus:outline-none"
+            className="p-2.5 rounded-lg bg-slate-800/80 text-slate-200 border border-slate-700/60 focus:outline-none cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -124,19 +125,26 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile / Tablet Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0a0e17]/95 backdrop-blur-xl border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 mt-3 animate-in fade-in slide-in-from-top-2 duration-200">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={(e) => handleNavClick(e, item.href)}
-              className="block px-4 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-slate-800/60 hover:text-sky-400 transition-colors"
-            >
-              {item.name}
-            </a>
-          ))}
+        <div className="xl:hidden bg-[#0a0e17]/95 backdrop-blur-xl border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 mt-3 animate-in fade-in slide-in-from-top-2 duration-200">
+          {navItems.map((item) => {
+            const isActive = activeSection === item.href.substring(1);
+            return (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  isActive
+                    ? 'bg-sky-500/15 text-sky-400 border border-sky-500/30 font-semibold'
+                    : 'text-slate-200 hover:bg-slate-800/60 hover:text-sky-400'
+                }`}
+              >
+                {item.name}
+              </a>
+            );
+          })}
           <div className="pt-3 border-t border-slate-800 flex flex-col gap-2.5">
             <a
               href="#contact"

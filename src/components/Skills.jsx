@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Layout, Server, Database, Cpu, Wrench } from 'lucide-react';
+import { Code, Layout, Server, Database, Cpu, Wrench, ShieldCheck } from 'lucide-react';
 import { skillsData } from '../data/portfolioData';
 
 const categoryIcons = {
@@ -8,6 +8,7 @@ const categoryIcons = {
   Server: Server,
   Database: Database,
   Cpu: Cpu,
+  Shield: ShieldCheck,
   Wrench: Wrench,
 };
 
@@ -26,7 +27,7 @@ export default function Skills() {
             Technical Skills
           </h2>
           <p className="text-sm text-slate-400 max-w-xl mt-2">
-            Structured view of core programming languages, modern web frameworks, databases, core CS concepts, and developer tooling.
+            Structured categories covering core programming languages, modern web frameworks, AI systems, databases, and developer tooling.
           </p>
         </div>
 
@@ -44,7 +45,7 @@ export default function Skills() {
                     <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 group-hover:scale-110 group-hover:bg-sky-500/20 transition-all duration-300">
                       <IconComponent size={20} />
                     </div>
-                    <h3 className="text-lg font-bold text-slate-100 group-hover:text-sky-300 transition-colors">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-100 group-hover:text-sky-300 transition-colors">
                       {cat.category}
                     </h3>
                   </div>
@@ -63,7 +64,7 @@ export default function Skills() {
 
                 <div className="mt-6 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] font-mono text-slate-400">
                   <span>{cat.skills.length} competencies</span>
-                  <span className="text-sky-400">Verified</span>
+                  <span className="text-sky-400 font-medium">Core Stack</span>
                 </div>
               </div>
             );

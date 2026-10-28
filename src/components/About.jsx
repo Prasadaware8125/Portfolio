@@ -24,19 +24,19 @@ export default function About() {
           {/* Main About Text */}
           <div className="lg:col-span-7 space-y-5 text-slate-300 leading-relaxed text-base">
             <p>
-              I am a <strong className="text-slate-100">Bachelor of Technology student in Information Technology</strong> at <strong className="text-slate-100">Walchand Institute of Technology, Solapur</strong>, with an outstanding academic record of <strong className="text-sky-400 font-mono">9.48/10 CGPA</strong> and expected graduation in <strong className="text-slate-100">June 2027</strong>.
+              I am a <strong className="text-slate-100">B.Tech student in Information Technology</strong> with a <strong className="text-slate-100">Minor in Electronics and Telecommunication Engineering (ENTC)</strong> at <strong className="text-slate-100">Walchand Institute of Technology, Solapur</strong>, holding a <strong className="text-sky-400 font-mono">9.48/10 CGPA</strong> with expected graduation in <strong className="text-slate-100">June 2027</strong>.
             </p>
 
             <p>
-              My technical foundation revolves around <strong className="text-slate-100">Java, Data Structures & Algorithms</strong>, and modern full-stack web architectures. Having solved <strong className="text-sky-400 font-mono">300+ DSA problems</strong>, I focus heavily on writing clean, efficient, and well-structured code that scales.
+              With strong foundations in <strong className="text-slate-100">Data Structures & Algorithms</strong> and <strong className="text-sky-400 font-mono">500+ problems solved</strong> across competitive coding platforms, I focus heavily on algorithmic efficiency, clean software architecture, and writing maintainable code that scales smoothly.
             </p>
 
             <p>
-              I actively build practical end-to-end applications using <strong className="text-slate-100">React.js, Node.js, Express.js, and MongoDB</strong>. In addition to technical execution, I have demonstrated leadership capabilities as <strong className="text-slate-100">Team Leader for Team AgriNova</strong>, securing <strong className="text-amber-400">2nd Place in Techathon 1.0</strong> (a state-level technical event).
+              My hands-on experience spans building full-stack web applications and AI-powered systems using <strong className="text-slate-100">React, Node.js, FastAPI, LangGraph, and ChromaDB</strong>. I enjoy developing practical software, integrating APIs, and engineering solutions with retrieval-augmented generation and multi-agent workflows.
             </p>
 
             <p>
-              I am actively seeking <strong className="text-sky-400 font-semibold">Software Engineering Internships and Full-Time SDE opportunities</strong> where I can contribute to real-world software systems, solve complex engineering challenges, and collaborate with high-performing engineering teams.
+              I am actively targeting <strong className="text-sky-400 font-semibold">Software Engineering Intern, SDE Intern, Graduate Software Engineer, Full-Stack Developer, Backend Developer, and AI/ML / Agentic AI roles</strong> where I can solve meaningful problems, contribute to mission-critical systems, and collaborate with forward-thinking engineering teams.
             </p>
           </div>
 
@@ -70,10 +70,10 @@ export default function About() {
                 <span>Target Engineering Roles</span>
               </h3>
               
-              <ul className="grid grid-cols-2 gap-2 text-xs font-medium text-slate-300">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-medium text-slate-300">
                 {personalInfo.targetRoles.map((role, idx) => (
-                  <li key={idx} className="flex items-center gap-2 bg-slate-900/50 p-2 rounded-lg border border-slate-800">
-                    <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
+                  <li key={idx} className="flex items-center gap-2 bg-slate-900/50 p-2.5 rounded-lg border border-slate-800">
+                    <span className="w-1.5 h-1.5 rounded-full bg-sky-400 flex-shrink-0" />
                     <span>{role}</span>
                   </li>
                 ))}

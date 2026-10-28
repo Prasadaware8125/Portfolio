@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trophy, BrainCircuit, Award, CheckCircle } from 'lucide-react';
+import { Trophy, BrainCircuit, Award } from 'lucide-react';
 import { achievementsData } from '../data/portfolioData';
 
 const achievementIconMap = {
@@ -23,12 +23,12 @@ export default function Achievements() {
             Key Achievements
           </h2>
           <p className="text-sm text-slate-400 max-w-lg mt-2">
-            Verified competitive milestones, hackathon awards, and consistent problem-solving dedication.
+            Verified competitive programming milestones, hackathon awards, and problem-solving metrics.
           </p>
         </div>
 
-        {/* Achievements Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Achievements Grid: 4 cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {achievementsData.map((item) => {
             const IconComponent = achievementIconMap[item.icon] || Award;
             return (
@@ -41,6 +41,10 @@ export default function Achievements() {
                     <IconComponent size={24} />
                   </div>
 
+                  <div className="text-xs font-mono text-slate-400 mb-1">
+                    {item.organization}
+                  </div>
+
                   <h3 className="text-lg font-bold text-slate-100 mb-1">
                     {item.title}
                   </h3>
@@ -49,18 +53,15 @@ export default function Achievements() {
                     {item.award}
                   </div>
 
-                  <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                  <p className="text-xs text-slate-300 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
-                {item.role && (
-                  <div className="pt-3 border-t border-slate-800/80">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/20">
-                      <CheckCircle size={11} /> {item.role}
-                    </span>
-                  </div>
-                )}
+                <div className="pt-4 mt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                  <span className="text-emerald-400 font-medium">Verified</span>
+                  <span>Competition</span>
+                </div>
               </div>
             );
           })}

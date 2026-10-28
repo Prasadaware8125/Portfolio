@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, CheckCircle, ExternalLink, ShieldCheck } from 'lucide-react';
+import { Award, ShieldCheck } from 'lucide-react';
 import { certificationsData } from '../data/portfolioData';
 
 export default function Certifications() {
@@ -17,7 +17,7 @@ export default function Certifications() {
             Certifications
           </h2>
           <p className="text-sm text-slate-400 max-w-lg mt-2">
-            Structured courses and specialized technical certifications completed alongside academic curriculum.
+            Structured courses and technical certifications completed in algorithms, web development, AI tools, and computer science fundamentals.
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export default function Certifications() {
                   <span className="w-9 h-9 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
                     <ShieldCheck size={18} />
                   </span>
-                  <span className="text-xs font-mono text-slate-400 font-semibold px-2.5 py-0.5 rounded bg-slate-900 border border-slate-800">
+                  <span className="text-xs font-mono text-slate-300 font-semibold px-2.5 py-0.5 rounded bg-slate-900 border border-slate-800">
                     {cert.issuer}
                   </span>
                 </div>
@@ -55,9 +55,7 @@ export default function Certifications() {
               </div>
 
               <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
-                <span className="flex items-center gap-1">
-                  <CheckCircle size={12} className="text-emerald-400" /> Verified
-                </span>
+                <span className="text-slate-400">Accredited Course</span>
                 <span className="text-sky-400 font-semibold">{cert.issuer}</span>
               </div>
             </div>

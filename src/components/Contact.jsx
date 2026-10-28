@@ -81,10 +81,11 @@ export default function Contact() {
           submitting: false,
           success: true,
           error: false,
-          message: "Message sent successfully. I'll get back to you soon.",
+          message: "Message sent successfully! I will get back to you soon.",
         });
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
+        // Graceful mailto fallback if Web3Forms fails or is rate limited
         window.location.href = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
           formData.subject || 'Portfolio Inquiry'
         )}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
@@ -93,10 +94,11 @@ export default function Contact() {
           submitting: false,
           success: true,
           error: false,
-          message: "Message prepared! Your email client opened to complete sending directly to Prasad.",
+          message: "Service responded with an error. Your default email client was opened as a fallback to complete sending directly.",
         });
       }
-    } catch (err) {
+    } catch {
+      // Graceful mailto fallback on network or offline error
       window.location.href = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
         formData.subject || 'Portfolio Inquiry'
       )}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
@@ -105,7 +107,7 @@ export default function Contact() {
         submitting: false,
         success: true,
         error: false,
-        message: "Message prepared in your default mail app.",
+        message: "Network issue encountered. Your default email application opened with your drafted message.",
       });
     }
   };
@@ -124,7 +126,7 @@ export default function Contact() {
             Let's Connect
           </h2>
           <p className="text-sm text-slate-400 max-w-md mt-2">
-            Have an opportunity, project, or collaboration in mind? Feel free to reach out.
+            Have an internship opportunity, software project, or technical question? Feel free to reach out.
           </p>
         </div>
 
@@ -157,7 +159,8 @@ export default function Contact() {
                   <button
                     onClick={handleCopyEmail}
                     className="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-sky-400 hover:bg-slate-700 transition-all flex-shrink-0 cursor-pointer"
-                    title="Copy Email"
+                    title="Copy Email to Clipboard"
+                    aria-label="Copy Email"
                   >
                     {copiedEmail ? <Check size={16} className="text-emerald-400" /> : <Copy size={16} />}
                   </button>
@@ -230,10 +233,11 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-mono font-medium text-slate-300 mb-1">
+                    <label htmlFor="contact-name" className="block text-xs font-mono font-medium text-slate-300 mb-1">
                       Your Name *
                     </label>
                     <input
+                      id="contact-name"
                       type="text"
                       name="name"
                       value={formData.name}
@@ -245,10 +249,11 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono font-medium text-slate-300 mb-1">
+                    <label htmlFor="contact-email" className="block text-xs font-mono font-medium text-slate-300 mb-1">
                       Your Email *
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
                       name="email"
                       value={formData.email}
@@ -261,10 +266,11 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-medium text-slate-300 mb-1">
+                  <label htmlFor="contact-subject" className="block text-xs font-mono font-medium text-slate-300 mb-1">
                     Subject
                   </label>
                   <input
+                    id="contact-subject"
                     type="text"
                     name="subject"
                     value={formData.subject}
@@ -275,10 +281,11 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-medium text-slate-300 mb-1">
+                  <label htmlFor="contact-message" className="block text-xs font-mono font-medium text-slate-300 mb-1">
                     Message *
                   </label>
                   <textarea
+                    id="contact-message"
                     name="message"
                     rows={5}
                     value={formData.message}

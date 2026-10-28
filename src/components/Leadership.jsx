@@ -1,10 +1,23 @@
 import React from 'react';
-import { Crown, Trophy, Users, CheckCircle2, Award, Zap } from 'lucide-react';
-import { leadershipData } from '../data/portfolioData';
+import { Crown, Trophy, CheckCircle2, Zap } from 'lucide-react';
 
 export default function Leadership() {
+  const leadershipData = {
+    title: "Team Leader — Team AgriNova",
+    project: "KrishiSakhi (AI-Powered Smart Farming Platform)",
+    achievement: "2nd Place (Team Runner-Up) — Techathon 1.0",
+    event: "State-Level Technical Event",
+    responsibilities: [
+      "Coordinated team members and aligned individual responsibilities with core project objectives",
+      "Distributed technical and design tasks based on individual strengths",
+      "Tracked overall project milestones and delivery timelines under competition deadlines",
+      "Coordinated feature integration between mobile frontend and ML backend services",
+      "Led final project demonstration and presentation to expert judges"
+    ]
+  };
+
   return (
-    <section className="py-16 border-b border-slate-800/80 bg-slate-900/30">
+    <section id="leadership" className="py-16 border-b border-slate-800/80 bg-slate-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

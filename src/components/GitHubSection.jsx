@@ -1,29 +1,43 @@
 import React, { useState, useEffect } from 'react';
-import { ExternalLink, Code2, RefreshCw } from 'lucide-react';
+import { ExternalLink, Code2 } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 
-const knownRepos = [
-  {
-    name: 'Bank-Management-System-Frontend',
-    displayName: 'FinVault Nexus — Frontend',
-    description: 'React.js & Redux banking management system dashboard with secure authentication.',
-    language: 'JavaScript',
-    url: 'https://github.com/Prasadaware8125/Bank-Management-System-Frontend'
-  },
-  {
-    name: 'Bank-Management-System-Backend',
-    displayName: 'FinVault Nexus — Backend',
-    description: 'Node.js & Express RESTful API backend with JWT authentication and MongoDB.',
-    language: 'JavaScript',
-    url: 'https://github.com/Prasadaware8125/Bank-Management-System-Backend'
-  },
+const featuredRepos = [
   {
     name: 'WanderLust',
-    displayName: 'WanderLust Travel Platform',
-    description: 'Full-stack travel listing platform with Node.js, Express, MongoDB, EJS & Passport.js.',
+    displayName: 'WanderLust',
+    description: 'Full-stack accommodation listing platform built with Node.js, Express, MongoDB, EJS, Passport.js, Cloudinary & Leaflet.',
     language: 'JavaScript',
     url: 'https://github.com/Prasadaware8125/WanderLust'
+  },
+  {
+    name: 'skn_hackthon',
+    displayName: 'KrishiSakhi',
+    description: 'AI-powered smart farming platform with soil report analysis, weather advisory, and Groq API chatbot. Techathon 1.0 Runner-Up.',
+    language: 'Python',
+    url: 'https://github.com/Prasadaware8125/skn_hackthon'
+  },
+  {
+    name: 'RAG_FRONTEND_DEPLOY',
+    displayName: 'SourceIQ — Frontend',
+    description: 'React.js application featuring multi-turn grounded chat, source citations, document uploads, and Markdown rendering.',
+    language: 'JavaScript',
+    url: 'https://github.com/Prasadaware8125/RAG_FRONTEND_DEPLOY'
+  },
+  {
+    name: 'RAG_SERVER_DEPLOY',
+    displayName: 'SourceIQ — Backend',
+    description: 'Python RAG backend utilizing web scraping, Redis caching, and citation grounding for engineering education queries.',
+    language: 'Python',
+    url: 'https://github.com/Prasadaware8125/RAG_SERVER_DEPLOY'
+  },
+  {
+    name: 'AptiMind',
+    displayName: 'AptiMind',
+    description: 'Agentic AI aptitude preparation platform with LangGraph multi-agent orchestration, ChromaDB RAG, and FastAPI endpoints.',
+    language: 'Python',
+    url: 'https://github.com/Prasadaware8125/AptiMind'
   }
 ];
 
@@ -41,7 +55,7 @@ export default function GitHubSection() {
   }, []);
 
   return (
-    <section className="py-20 border-b border-slate-800/80">
+    <section id="github" className="py-20 border-b border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -54,7 +68,7 @@ export default function GitHubSection() {
             Building in Public
           </h2>
           <p className="text-sm text-slate-400 max-w-md mt-2">
-            Explore my public GitHub repositories, project codebases, and ongoing development work.
+            Explore my public GitHub repositories, active codebases, and ongoing open-source work.
           </p>
         </div>
 
@@ -62,12 +76,12 @@ export default function GitHubSection() {
         <div className="max-w-3xl mx-auto mb-10">
           <div className="glass-card rounded-2xl p-6 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-700 flex items-center justify-center text-sky-400 font-bold text-xl shadow-inner">
+              <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-700 flex items-center justify-center text-sky-400 font-bold text-xl shadow-inner overflow-hidden">
                 {profileData?.avatar_url ? (
                   <img
                     src={profileData.avatar_url}
                     alt="Prasad Aware GitHub Avatar"
-                    className="w-full h-full rounded-2xl object-cover"
+                    className="w-full h-full object-cover"
                   />
                 ) : (
                   <GithubIcon size={28} />
@@ -79,7 +93,7 @@ export default function GitHubSection() {
                   <span className="text-xs font-mono font-normal text-slate-400">@Prasadaware8125</span>
                 </h3>
                 <p className="text-xs text-slate-400 mt-0.5">
-                  {profileData?.bio || 'B.Tech IT Undergraduate | Full-Stack Developer & Java Enthusiast'}
+                  {profileData?.bio || 'B.Tech IT Undergraduate | Full-Stack & Agentic AI Developer'}
                 </p>
               </div>
             </div>
@@ -97,9 +111,9 @@ export default function GitHubSection() {
           </div>
         </div>
 
-        {/* Public Repositories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {knownRepos.map((repo, idx) => (
+        {/* Public Repositories Grid: 5 Featured Repositories */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredRepos.map((repo, idx) => (
             <div
               key={idx}
               className="glass-card rounded-2xl p-6 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 flex flex-col justify-between group"
